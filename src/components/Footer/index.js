@@ -13,18 +13,21 @@ import {
   FooterLinksContainer,
   FooterLinksWrapper,
   FooterLinkTitle,
-  FooterLinkTittle,
   FooterWrap,
   SocialIconLink,
   SocialIcons,
-  SocialIconsLink,
   SocialLogo,
   SocialMedia,
   SocialMediaWrap,
   WebsiteRights,
 } from "./FooterElements";
+import { animateScroll as scroll } from "react-scroll";
 
 const Footer = () => {
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <FooterContainer>
       <FooterWrap>
@@ -64,9 +67,11 @@ const Footer = () => {
         </FooterLinksContainer>
         <SocialMedia>
           <SocialMediaWrap>
-            <SocialLogo to="/">Standy Group</SocialLogo>
+            <SocialLogo to="/" onClick={toggleHome}>
+              Standy Group
+            </SocialLogo>
             <WebsiteRights>
-              Standy Group {new Date().getFullYear()}
+              Standy Group LLC {new Date().getFullYear()}
               All rights reserved.
             </WebsiteRights>
             <SocialIcons>
